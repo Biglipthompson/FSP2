@@ -1,9 +1,7 @@
 /*
 Treehouse Techdegree:
 FSJS Project 2 - Data Pagination and Filtering
-*/
-
-// Array of student objects
+*/// Array of student objects
 const data = [
   {
     name: {
@@ -720,3 +718,6 @@ const data = [
     },
   },
 ];
+
+//This checks to make sure that I am logging out the correct key value pairs from the array objects
+// console.log(data[0].name)
