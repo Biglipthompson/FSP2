@@ -17,20 +17,20 @@ var startIndex = (page * 9 ) - 9;
 var endIndex = page * 9;
 const studentList = document.querySelector('.student-list');
    studentList.innerHTML = ' ';
-   for( i = 0; studentList.length; i++){
+   for( i = 0; list.length; i++){
    if( i >= startIndex && i < endIndex){
      var studentItem = 
       `<li class="student-item cf">
       <div class="student-details">
       <img class="avatar" src="${studentList[i].picture.thumbnail}" alt="Profile Picture">
-      <h3>${studentList[i].name.first} ${studentList[i].name.last}</h3>
+      <h3>${studentList[i].name.first} '' ${studentList[i].name.last}</h3>
       <span class="email">${studentList[i].email}</span>
       </div>
       <div class="joined-details">
       <span class="date">${studentList[i].registered.date}</span>
       </div>
       </li>`
-     studentList.innerHTML = studentItem;
+      studentList.innerHTML = studentItem;
       }
    }
 } 
