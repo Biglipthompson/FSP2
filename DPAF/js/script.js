@@ -17,7 +17,7 @@ var startIndex = (page * 9 ) - 9;
 var endIndex = page * 9;
 let studentList = document.querySelector('.student-list');
    studentList.innerHTML = " ";
-   for(let i = 0; list.length; i++){
+   for(let i = 0; i < list.length; i++){
    if( i >= startIndex && i < endIndex){
      var studentItem = 
       `<li class="student-item cf">
@@ -40,12 +40,34 @@ Create the addPagination function
 This function will create and insert/append the elements needed for the pagination buttons
 */
 
-// function addPagination (){
-//    document.getElementsByClassName('pagination')
+function addPagination (list){
+   var numOfPages = Math.ceil(list.length / 9)
+     let linkList = document.getElementsByClassName('link-list');
+     linkList.innerHTML = '';
+     for (let i = 1; i <= numOfPages; i++){
+      var button = `
+      <li>
+      <button type="button">1</button>
+    </li>
+      `
+     }
+      let btn1 = document.getElementsByClassName('active');
 
-// }
+    // if the click target is a button:
+      // remove the "active" class from the previous button
+      // add the active class to the clicked button
+      // call the showPage function passing the `list` parameter and page to display as arguments
+   linkList.addEventListener('click', () => {
+      if (e.target === 'button'){
+         
+         remove.classList.remove('active');
+
+      }
+   });
+}
+
 
 
 // Call functions
-showPage(data, 1)
+showPage(data, 1);
 
