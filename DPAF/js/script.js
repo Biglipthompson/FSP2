@@ -41,7 +41,7 @@ This function will create and insert/append the elements needed for the paginati
 */
 
 function addPagination (list){
-   var numOfPages = Math.ceil(list.length / 9)
+   var numOfPages = Math.ceil(list.length / 9);
      let linkList = document.getElementsByClassName('link-list');
      linkList.innerHTML = '';
      for (let i = 1; i <= numOfPages; i++){
@@ -50,24 +50,27 @@ function addPagination (list){
       <button type="button">1</button>
     </li>
       `
-     }
-      let btn1 = document.getElementsByClassName('active');
-
-    // if the click target is a button:
-      // remove the "active" class from the previous button
-      // add the active class to the clicked button
-      // call the showPage function passing the `list` parameter and page to display as arguments
-   linkList.addEventListener('click', () => {
-      if (e.target === 'button'){
-         
-         remove.classList.remove('active');
+      linkList.insertAdjacentHTML('beforeend', button);
+      var firstButton = document.querySelector('active');
+      firstButton.className = 'active';
 
       }
-   });
-}
-
+   }
+   
+   //  if the click target is a button:
+   //    remove the "active" class from the previous button
+   //    add the active class to the clicked button
+   //    call the showPage function passing the `list` parameter and page to display as arguments
+   // linkList.addEventListener('click', () => {
+   //    if (e.target === 'button'){
+         
+   //       remove.classList.remove('active');
+      
+   //    }
+   // });
 
 
 // Call functions
 showPage(data, 1);
+addPagination(data);
 
