@@ -35,42 +35,48 @@ let studentList = document.querySelector('.student-list');
    }
 } 
 
-/*
-Create the addPagination function
-This function will create and insert/append the elements needed for the pagination buttons
-*/
+// /*
+// Create the addPagination function
+// This function will create and insert/append the elements needed for the pagination buttons
+// */
 
 function addPagination (list){
    var numOfPages = Math.ceil(list.length / 9);
-     let linkList = document.getElementsByClassName('link-list');
-     linkList.innerHTML = '';
-     for (let i = 1; i <= numOfPages; i++){
-      var button = `
-      <li>
-      <button type="button">1</button>
-    </li>
-      `
-      linkList.insertAdjacentHTML('beforeend', button);
-      var firstButton = document.querySelector('active');
-      firstButton.className = 'active';
-
-      }
+   let linkList = document.getElementsByClassName('link-list');
+   linkList.innerHTML = ' ';
+   for (let i = 1; i <= numOfPages; i++){
+   var button = `
+   <li>
+   <button type="button">1</button>
+   </li>
+   `
+   linkList.insertAdjacentHTM("beforeend", button);
+   var firstButton = document.querySelector('active');
+   firstButton.classList = 'active';
+}
+   linkList.addEventListener('click', () => {
+      if (tagName.e.target === BUTTON){
+      firstChild.classList = 'active';
    }
-   
+});
+   linkList.addEventListener('click', () => {
+   if (e.target === 'button'){
+      remove.classList.remove('active');
+    }
+  });
+}
+
+
+
+
+
    //  if the click target is a button:
    //    remove the "active" class from the previous button
    //    add the active class to the clicked button
    //    call the showPage function passing the `list` parameter and page to display as arguments
-   // linkList.addEventListener('click', () => {
-   //    if (e.target === 'button'){
-         
-   //       remove.classList.remove('active');
-      
-   //    }
-   // });
 
 
 // Call functions
 showPage(data, 1);
-addPagination(data);
+addPagination(list);
 
