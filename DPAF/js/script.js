@@ -53,18 +53,17 @@ function addPagination (list){
    linkList.insertAdjacentHTM("beforeend", button);
    var firstButton = document.querySelector('active');
    firstButton.classList = 'active';
+ }
 }
    linkList.addEventListener('click', () => {
-      if (tagName.e.target === BUTTON){
-      firstChild.classList = 'active';
+   if (tagName.e.target === BUTTON){
+   firstChild.classList = 'active';
+}
+   if (e.target === 'button'){
+   remove.classList.remove('active');
    }
 });
-   linkList.addEventListener('click', () => {
-   if (e.target === 'button'){
-      remove.classList.remove('active');
-    }
-  });
-}
+
 
 
 
@@ -77,6 +76,6 @@ function addPagination (list){
 
 
 // Call functions
-showPage(data, 1);
-addPagination(list);
+// showPage(data, 1)
+// addPagination(data)
 
