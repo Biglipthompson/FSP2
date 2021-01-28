@@ -53,22 +53,27 @@ function addPagination (list){
    <button type="button">${i}</button>
    </li>
    `;
-   linkList.insertAdjacentHTM("beforeend", button);
-   let Btn1 = document.querySelector('button');
+   linkList.insertAdjacentHTML("beforeend", button);
+   var Btn1 = document.querySelector('button');
    Btn1.className = 'active';
  }
-}
-// addPagination(list);
 
 
    linkList.addEventListener('click', () => {
-   if (tagName.e.target === BUTTON){
-   firstChild.classList = 'active';
-}
-   if (e.target === 'button'){
-   remove.classList.remove('active');
+   if (e.taget.tagName === 'button' ){
+      // This will remove the class name from the previous button.
+      let Btn1 = document.querySelector('.active');
+      Btn1.className = '';
    }
-});
+   if (e.target === 'button'){
+   remove.classList.remove('active');  
+
+      }
+   })
+ }
+
+
+
 
 
 
@@ -82,6 +87,6 @@ function addPagination (list){
 
 
 // Call functions
-// showPage(data, 1)
-// addPagination(data)
+// showPage(list, 1);
+
 
