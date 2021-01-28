@@ -1,3 +1,6 @@
+var linkList = document.getElementsByClassName('link-list');
+
+
 /*
 Treehouse Techdegree:
 FSJS Project 2 - Data Pagination and Filtering
@@ -42,19 +45,22 @@ let studentList = document.querySelector('.student-list');
 
 function addPagination (list){
    var numOfPages = Math.ceil(list.length / 9);
-   let linkList = document.getElementsByClassName('link-list');
-   linkList.innerHTML = ' ';
-   for (let i = 1; i <= numOfPages; i++){
+   var linkList = document.getElementsByClassName('link-list');
+   linkList.innerHTML = " ";
+   for (let i = 1; i <= numOfPages.length; i++){
    var button = `
    <li>
-   <button type="button">1</button>
+   <button type="button">${i}</button>
    </li>
-   `
+   `;
    linkList.insertAdjacentHTM("beforeend", button);
-   var firstButton = document.querySelector('active');
-   firstButton.classList = 'active';
+   let Btn1 = document.querySelector('button');
+   Btn1.className = 'active';
  }
 }
+// addPagination(list);
+
+
    linkList.addEventListener('click', () => {
    if (tagName.e.target === BUTTON){
    firstChild.classList = 'active';
