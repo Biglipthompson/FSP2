@@ -54,18 +54,17 @@ function addPagination(list) {
 
    linkList.innerHTML = " ";
 
-   for (let i = 1; i <= numOfPages.length; i++){
-   const pageNumber = [i];
+   for (let i = 1; i <= numOfPages; i++){
    const button = `
    <li>
-   <button type="button">${pageNumber}</button>
+   <button type="button">${[i]}</button>
    </li>`;
    linkList.insertAdjacentHTML('beforeend', button);
 
    const pageButton = document.querySelector('button');
    pageButton.className = 'active';   
- }
-
+ 
+   }
 linkList.addEventListener('click', (e) => {
    const clickEvent = e.target;
       if (clickEvent.tagName === 'BUTTON'){
@@ -80,7 +79,10 @@ linkList.addEventListener('click', (e) => {
       });
    }
 
-   // Calling Functions 
-   
    showPage(data, 1);
    addPagination(data);
+
+
+   // Calling Functions 
+   
+
