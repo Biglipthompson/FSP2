@@ -1,10 +1,5 @@
-var linkList = document.getElementsByClassName('link-list');
-
-
-/*
-Treehouse Techdegree:
-FSJS Project 2 - Data Pagination and Filtering
-*/
+const linkList = document.querySelector('.link-list');
+const studentList = document.querySelector('.student-list');
 
 /*
 Create the `showPage` function
@@ -16,23 +11,28 @@ This function will create and insert/append the elements needed to display a "pa
 //A page parameter to represent the page number that will be passed as an argument when the function is called.
 
 function showPage(list, page){
-var startIndex = (page * 9 ) - 9;
-var endIndex = page * 9;
+const startIndex = ((page * 9 ) - 9);
+const endIndex = (page * 9);
+
+
 let studentList = document.querySelector('.student-list');
-   studentList.innerHTML = " ";
+studentList.innerHTML = " ";
+
    for(let i = 0; i < list.length; i++){
+
    if( i >= startIndex && i < endIndex){
-     var studentItem = 
+      
+     const studentItem = 
       `<li class="student-item cf">
       <div class="student-details">
-      <img class="avatar" src="${data[i].picture.thumbnail}" alt="Profile Picture">
-      <h3>${data[i].name.first} ${data[i].name.last}</h3>
-      <span class="email">${data[i].email}</span>
+      <img class="avatar" src=${list[i].picture.medium} alt="Profile Picture">
+      <h3>${list[i].name.first} ${list[i].name.last}</h3>
+      <span class="email">${list[i].email}</span>
       </div>
       <div class="joined-details">
-      <span class="date">${data[i].registered.date}</span>
+      <span class="date">${list[i].registered.date}</span>
       </div>
-      </li>`
+      </li>`;
       studentList.insertAdjacentHTML("beforeend", studentItem);
       }
    }
@@ -43,50 +43,42 @@ let studentList = document.querySelector('.student-list');
 // This function will create and insert/append the elements needed for the pagination buttons
 // */
 
-function addPagination (list){
-   var numOfPages = Math.ceil(list.length / 9);
-   var linkList = document.getElementsByClassName('link-list');
+function addPagination(list) {
+
+   const numOfPages = Math.ceil(list.length / 9);
+
+   const linkList = document.querySelector('.link-list');
+
    linkList.innerHTML = " ";
+
    for (let i = 1; i <= numOfPages.length; i++){
-   var button = `
+   const pageNumber = [i];
+   const button = `
    <li>
-   <button type="button">${i}</button>
-   </li>
-   `;
-   linkList.insertAdjacentHTML("beforeend", button);
-   var Btn1 = document.querySelector('button');
-   Btn1.className = 'active';
+   <button type="button">${pageNumber}</button>
+   </li>`;
+   linkList.insertAdjacentHTML('beforeend', button);
+
+   const pageButton = document.querySelector('button');
+   pageButton.className = 'active';
+   
  }
 
+linkList.addEventListener('click', (e) => {
+   const clickEvent = e.target;
+      if (clickEvent.tagName === 'BUTTON'){
+         const Btn1 = document.querySelector('.active');
+         Btn1.className = '';
 
-   linkList.addEventListener('click', () => {
-   if (e.taget.tagName === 'button' ){
-      // This will remove the class name from the previous button.
-      let Btn1 = document.querySelector('.active');
-      Btn1.className = '';
+            clickEvent.className = 'active';
+            const clickEventContent = clickEvent.textContent;
+
+            showPage(list, clickEventContent);   
+          }
+      });
    }
-   if (e.target === 'button'){
-   remove.classList.remove('active');  
 
-      }
-   })
- }
-
-
-
-
-
-
-
-
-
-   //  if the click target is a button:
-   //    remove the "active" class from the previous button
-   //    add the active class to the clicked button
-   //    call the showPage function passing the `list` parameter and page to display as arguments
-
-
-// Call functions
-// showPage(list, 1);
-
-
+   // Calling Functions 
+   
+   showPage(data, 1);
+   addPagination(data);
