@@ -34,6 +34,9 @@ studentList.innerHTML = " ";
       </div>
       </li>`;
       studentList.insertAdjacentHTML("beforeend", studentItem);
+      // console.log(list);
+      // console.log(page);
+
       }
    }
 } 
@@ -60,8 +63,7 @@ function addPagination(list) {
    linkList.insertAdjacentHTML('beforeend', button);
 
    const pageButton = document.querySelector('button');
-   pageButton.className = 'active';
-   
+   pageButton.className = 'active';   
  }
 
 linkList.addEventListener('click', (e) => {
